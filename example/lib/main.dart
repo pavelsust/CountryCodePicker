@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
                 favorite: ['+39', 'FR'],
                 countryFilter: ['IT', 'FR'],
                 showFlagDialog: false,
-                comparator: (a, b) => b.name.compareTo(a.name),
+                comparator: (a, b) => b.name!.compareTo(a.name!),
                 //Get the country information relevant to the initial selection
                 onInit: (code) =>
                     print("on init ${code.name} ${code.dialCode} ${code.name}"),

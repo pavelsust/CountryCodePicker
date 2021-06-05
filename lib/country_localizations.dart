@@ -8,7 +8,8 @@ class CountryLocalizations {
 
   CountryLocalizations(this.locale);
 
-  static CountryLocalizations of(BuildContext context) {
+
+  static CountryLocalizations? of(BuildContext context) {
     return Localizations.of<CountryLocalizations>(
       context,
       CountryLocalizations,
@@ -16,9 +17,10 @@ class CountryLocalizations {
   }
 
   static const LocalizationsDelegate<CountryLocalizations> delegate =
-      _CountryLocalizationsDelegate();
+  _CountryLocalizationsDelegate();
 
-  Map<String, String> _localizedStrings;
+
+  late Map<String, String> _localizedStrings;
 
   Future<bool> load() async {
     print('locale.languageCode: ${locale.languageCode}');
@@ -33,7 +35,7 @@ class CountryLocalizations {
     return true;
   }
 
-  String translate(String key) {
+  String? translate(String? key) {
     return _localizedStrings[key];
   }
 }
@@ -58,7 +60,7 @@ class _CountryLocalizationsDelegate
 
   @override
   Future<CountryLocalizations> load(Locale locale) async {
-    CountryLocalizations localizations = new CountryLocalizations(locale);
+    CountryLocalizations localizations =  CountryLocalizations(locale);
     await localizations.load();
     return localizations;
   }

@@ -10,18 +10,19 @@ class CElement = CountryCode with ToAlias;
 /// Country element. This is the element that contains all the information
 class CountryCode {
   /// the name of the country
-  String name;
+   String? name;
 
   /// the flag of the country
-  final String flagUri;
+   final String? flagUri;
 
   /// the country code (IT,AF..)
-  final String code;
+  final String? code;
 
   /// the dial code (+39,+93..)
-  final String dialCode;
+  final String? dialCode;
 
-  CountryCode({
+  CountryCode(
+      {
     this.name,
     this.flagUri,
     this.code,
@@ -31,20 +32,14 @@ class CountryCode {
   factory CountryCode.fromCode(String isoCode) {
     final Map<String, String> jsonCode = codes.firstWhere(
       (code) => code['code'] == isoCode,
-      orElse: () => null,
     );
-
-    if (jsonCode == null) {
-      return null;
-    }
 
     return CountryCode.fromJson(jsonCode);
   }
 
   CountryCode localize(BuildContext context) {
     return this
-      ..name =
-          CountryLocalizations.of(context)?.translate(this.code) ?? this.name;
+      ..name = CountryLocalizations.of(context)?.translate(this.code!) ?? this.name;
   }
 
   factory CountryCode.fromJson(Map<String, dynamic> json) {
