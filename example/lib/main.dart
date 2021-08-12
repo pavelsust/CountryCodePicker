@@ -29,6 +29,11 @@ class _MyAppState extends State<MyApp> {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primaryColor: Colors.redAccent,
+
+      ),
       home: new Scaffold(
         appBar: new AppBar(
           title: const Text('CountryPicker Example'),

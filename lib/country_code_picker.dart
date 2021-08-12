@@ -9,6 +9,8 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 export 'country_code.dart';
 
 class CountryCodePicker extends StatefulWidget {
+
+
   final ValueChanged<CountryCode>? onChanged;
   final ValueChanged<CountryCode>? onInit;
   final String? initialSelection;
@@ -43,14 +45,8 @@ class CountryCodePicker extends StatefulWidget {
   /// used to customize the country list
   final List<String>? countryFilter;
 
-  /// shows the name of the country instead of the dialcode
   final bool showOnlyCountryWhenClosed;
 
-  /// aligns the flag and the Text left
-  ///
-  /// additionally this option also fills the available space of the widget.
-  /// this is especially useful in combination with [showOnlyCountryWhenClosed],
-  /// because longer country names are displayed in one line
   final bool alignLeft;
 
   /// shows the flag
@@ -111,7 +107,6 @@ class CountryCodePicker extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     List<Map<String , dynamic>> jsonList = codes;
-
     List<CountryCode> elements = jsonList.map((json) => CountryCode.fromJson(json)).toList();
 
     if (comparator != null) {
@@ -213,8 +208,7 @@ class CountryCodePickerState extends State<CountryCodePicker> {
 
     if (oldWidget.initialSelection != widget.initialSelection) {
       if (widget.initialSelection != null) {
-        selectedItem = elements.firstWhere(
-            (e) =>
+        selectedItem = elements.firstWhere((e) =>
                 (e.code!.toUpperCase() ==
                     widget.initialSelection!.toUpperCase()) ||
                 (e.dialCode == widget.initialSelection) ||

@@ -82,8 +82,17 @@ class _SelectionDialogState extends State<SelectionDialog> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: TextField(
+
+                    decoration: InputDecoration(
+                      hintText: "Search Country",
+                      hintStyle: TextStyle(fontSize: 20.0, color: Colors.black),
+                      contentPadding: EdgeInsets.all(10.0),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black),
+
+                      ),
+                    ),
                     style: widget.searchStyle,
-                    decoration: widget.searchDecoration,
                     onChanged: _filterElements,
                   ),
                 ),
@@ -147,7 +156,8 @@ class _SelectionDialogState extends State<SelectionDialog> {
             child: Text(
               widget.showCountryOnly! ? e.toCountryStringOnly() : e.toLongString(),
               overflow: TextOverflow.fade,
-              style: widget.textStyle,
+              style: TextStyle(color: Colors.black),
+
             ),
           ),
         ],
