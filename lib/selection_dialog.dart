@@ -92,7 +92,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
 
                       ),
                     ),
-                    style: widget.searchStyle,
+                    style: TextStyle(color: Colors.black),
                     onChanged: _filterElements,
                   ),
                 ),
@@ -112,7 +112,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
                                   },
                                 ),
                               ),
-                              const Divider(),
+                              const Divider(color: Colors.grey,),
                             ],
                           ),
                     if (filteredElements!.isEmpty)
